@@ -14,6 +14,7 @@ const useData = <T>(endpoint: string) => {
 
   useEffect(() => {
     const controller = new AbortController();
+    setIsLoading(true);
 
     apiClient
       .get<FetchData<T>>(endpoint, { signal: controller.signal })
