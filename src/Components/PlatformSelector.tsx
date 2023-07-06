@@ -12,9 +12,7 @@ export const PlatformSelector = ({
   onSelectPlatform,
   selectedPlaform,
 }: Props) => {
-  const { data, error } = usePlaforms();
-
-  if (error) return null;
+  const { data } = usePlaforms();
 
   return (
     <div style={{ marginLeft: "35px" }}>

@@ -5,8 +5,6 @@ import {
   Image,
   List,
   ListItem,
-  Skeleton,
-  SkeletonText,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedUrl from "../services/imageUrl";
@@ -17,30 +15,24 @@ interface Props {
 }
 
 const Genres = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, isLoading, error } = useGenres();
-  const spinners = [];
-  for (let i = 0; i < 20; i++) {
-    spinners.push(i);
-  }
+  const { data } = useGenres();
 
-  if (error) return null;
-
-  if (isLoading)
-    return (
-      <>
-        {spinners.map((spinner) => (
-          <Skeleton
-            height="32px"
-            width="200px"
-            key={spinner}
-            margin="5px"
-            borderRadius={8}
-          >
-            <SkeletonText />
-          </Skeleton>
-        ))}
-      </>
-    );
+  // if (isLoading)
+  //   return (
+  //     <>
+  //       {spinners.map((spinner) => (
+  //         <Skeleton
+  //           height="32px"
+  //           width="200px"
+  //           key={spinner}
+  //           margin="5px"
+  //           borderRadius={8}
+  //         >
+  //           <SkeletonText />
+  //         </Skeleton>
+  //       ))}
+  //     </>
+  //   );
 
   return (
     <>
